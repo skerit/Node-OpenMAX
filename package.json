@@ -18,13 +18,16 @@
     "clamp": "^1.0.1",
     "fps": "0.0.3",
     "nan": "^2.4.0",
-    "promise": "^7.1.1"
+    "promise": "^7.1.1",
+    "snyk": "^1.189.0"
   },
   "scripts": {
     "preinstall": "typings install || exit 0",
     "install": "node-gyp rebuild || exit 0",
     "test": "./node_modules/jasmine/bin/jasmine.js",
-    "make": "make -j 4 -C build/"
+    "make": "make -j 4 -C build/",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -34,5 +37,6 @@
   "devDependencies": {
     "jasmine": "^2.5.1",
     "typescript": "^1.7.5"
-  }
+  },
+  "snyk": true
 }
